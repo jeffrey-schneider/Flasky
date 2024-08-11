@@ -1,0 +1,3 @@
+url = 'https://gtfsapi.metrarail.com/gtfs/positions'
+username = '2d15ec378995035b2fe1ebe2053b6333'
+password = 'fecd949eda6b270012b975ee24260710'

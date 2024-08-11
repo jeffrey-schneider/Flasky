@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{# list.html #}
+{% block title %}{{the_title}}{% endblock %}
+
+{% block html_head %}
+  <style type="text/css">
+    .important {
+      color: #336699;
+
+  </style>
+
+{% endblock %}
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>{{ table }}</h1>
+</body>
+
+{# Working with Manual Escaping¶
+If manual escaping is enabled, it’s your responsibility to escape variables if needed. What to escape? If you have a variable that may include any of the following chars (>, <, &, or ") you SHOULD escape it unless the variable contains well-formed and trusted HTML. Escaping works by piping the variable through the |e filter:
+
+{{ user.username|e }}
+    #}
+

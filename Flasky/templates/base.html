@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+{# base.html #}
+{# This is a comment in the Jinja2 Template Language and a fine language it is. #}
+{# https://jinja.palletsprojects.com/en/2.11.x/templates/ #}
+<link rel="stylesheet" href="/static/style.css">
+<head>
+<div class="page-wrapper">
+    <title>Metra Sampler - My Webpage</title>
+
+
+</head>
+<body>
+  <div> Metra Sampler:
+  <a href="/index">Home</a>
+  <a href="{{ url_for('login') }}">Login</a>
+    <a href="/api/data/positions">Positions</a>
+    <a href="/api/data/stops">Stops</a>
+    <a href="/api/data/trips">Trips</a>
+    <a href="/api/data/routes">Routes</a>
+    <a href="/api/data/calendar">Calendar</a>
+    <a href="/api/data/agency">Agency</a>
+    <a href="/api/data/stops_times">Stops' Times</a>
+    <a href="{{ about_url }}">About</a>
+  </div>
+
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+  {% endif %}
+  {% endwith %}
+
+    <div id="content">{% block content %}{% endblock %}</div>
+
+
+
+    <div id="footer">
+      {% block footer %}
+      &copy; Copyright 2024 by <a href="http://domain.invalid/">Jeffrey Schneider</a>.
+      {% if run_date %}
+        <p>Run date: {{run_date}}</p>
+      {% endif %}
+
+      {% endblock %}
+    </div>
+    </div>
+  </body>

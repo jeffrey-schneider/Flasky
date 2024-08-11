@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex JSON Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Complex JSON Data</h1>
+    <div id="data-container">
+        {% for person in data %}
+            <div class="person">
+                <h2>{{ person.name }}</h2>
+                <p>City: {{ person.location.city }}</p>
+                <p>State: {{ person.location.state }}</p>
+                <p>Job Title: {{ person.job.title }}</p>
+                <p>Experience: {{ person.job.details.experience }} years</p>
+                <p>Skills: {{ person.job.details.skills | join(', ') }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

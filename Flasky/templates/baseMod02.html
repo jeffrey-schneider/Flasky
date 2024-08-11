@@ -1,0 +1,66 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/html">
+{# baseMod02.html #}
+{# This is a comment in the Jinja2 Template Language and a fine language it is. #}
+   {# https://jinja.palletsprojects.com/en/2.11.x/templates/ #}
+
+    <head>
+
+    {% block head %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <div class="page-wrapper">
+
+    <title>{% block title %}{{the_title}}{% endblock %} - My Webpage</title>
+    {% endblock %}{# End of block head #}
+
+        {% block navbar %}
+        <div class="navbar navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle"
+                            data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr_only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Flasky</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+
+  </head>
+  <body>
+
+
+
+     <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+    <div id="footer">
+      {% block footer %}
+      &copy; Copyright 2024 by <a href="http://domain.invalid/">Jeffrey Schneider</a>.
+      {% if run_date %}
+        <p>Run date: {{run_date}}</p>
+      {% endif %}
+      {% endblock %}
+    </div>
+    </div>
+  </body>
